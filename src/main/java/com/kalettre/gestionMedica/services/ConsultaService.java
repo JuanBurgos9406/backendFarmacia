@@ -14,8 +14,13 @@ import java.util.stream.Collectors;
 @Service
 public class ConsultaService {
 
-    @Autowired
-    private ConsultaRepository consultaRepository;
+
+    private final ConsultaRepository consultaRepository;
+
+
+    public ConsultaService(ConsultaRepository consultaRepository) {
+        this.consultaRepository = consultaRepository;
+    }
 
     public List<ConsultaDto> obtenerTodas() {
         return consultaRepository.findAll()

@@ -14,8 +14,12 @@ import java.util.stream.Collectors;
 @Service
 public class PacienteService {
 
-    @Autowired
-    private PacienteRepository pacienteRepository;
+    private final PacienteRepository pacienteRepository;
+
+    public PacienteService(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+    }
+
 
     public List<PacienteDto> obtenerTodos() {
         return pacienteRepository.findAll()
